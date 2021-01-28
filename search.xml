@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>苹果企业签名跑路，H5APP免签封装无跳转无网址显示还原原生APP苹果APP封装</title>
+      <link href="webclip/"/>
+      <url>webclip/</url>
+      
+        <content type="html"><![CDATA[<h1 id="话不多说，开始教程"><a href="#话不多说，开始教程" class="headerlink" title="话不多说，开始教程"></a>话不多说，开始教程</h1><p>首先你需要有顾客的一个网站<br>Mac需要下载Apple Configurator 2 微软则需要下载 苹果配置工具 我会传到TG文件群<br>双端操作方法大相庭径，所以我只演示Mac端<br>打开软件<br>点击文件-&gt;新建描述文件<br>我们只需要修改通用下的内容 和web clip的内容</p><h1 id="防止唤醒Safari"><a href="#防止唤醒Safari" class="headerlink" title="防止唤醒Safari"></a>防止唤醒Safari</h1><p>请将代码复制到每个网页的＜/head ＞标签前<br>请务必确保所有网页均写有此代码，否则可能出现APP内点击链接唤起手机自带Safari浏览器的情况，降低用户体验。<br>Q：代码有什么作用？<br>A ：此段代码主要是阻止网页唤起Iphone手机Safari浏览器<br>Q：添加代码后需要重新生成吗？<br>A ：不需要生成，App将同步完成更新。<br>Q ：代码会对网站安全产生影响吗？<br>A ：不影响，代码只是单纯的阻止唤起浏览器。</p><pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script language-javascript"><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"standalone"</span> <span class="token keyword">in</span> window<span class="token punctuation">.</span>navigator<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> window<span class="token punctuation">.</span>navigator<span class="token punctuation">.</span>standalone<span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token keyword">var</span> noddy<span class="token punctuation">,</span> remotes <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>    document<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span> <span class="token punctuation">{</span>        noddy <span class="token operator">=</span> event<span class="token punctuation">.</span>target<span class="token punctuation">;</span>        <span class="token keyword">while</span><span class="token punctuation">(</span>noddy<span class="token punctuation">.</span>nodeName <span class="token operator">!==</span> <span class="token string">"A"</span> <span class="token operator">&amp;&amp;</span> noddy<span class="token punctuation">.</span>nodeName <span class="token operator">!==</span> <span class="token string">"HTML"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>            noddy <span class="token operator">=</span> noddy<span class="token punctuation">.</span>parentNode<span class="token punctuation">;</span>        <span class="token punctuation">}</span>        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token string">'href'</span> <span class="token keyword">in</span> noddy <span class="token operator">&amp;&amp;</span> noddy<span class="token punctuation">.</span>href<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">'http'</span><span class="token punctuation">)</span> <span class="token operator">!==</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>noddy<span class="token punctuation">.</span>href<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span>location<span class="token punctuation">.</span>host<span class="token punctuation">)</span> <span class="token operator">!==</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">||</span> remotes<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>            event<span class="token punctuation">.</span><span class="token function">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>            document<span class="token punctuation">.</span>location<span class="token punctuation">.</span>href <span class="token operator">=</span> noddy<span class="token punctuation">.</span>href<span class="token punctuation">;</span>        <span class="token punctuation">}</span>    <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre><h1 id="描述文件无头部网址"><a href="#描述文件无头部网址" class="headerlink" title="描述文件无头部网址"></a>描述文件无头部网址</h1><pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>zh-CN<span class="token punctuation">"</span></span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">--status-bar-height</span><span class="token punctuation">:</span><span class="token number">0</span>px<span class="token punctuation">;</span><span class="token property">--window-top</span><span class="token punctuation">:</span><span class="token number">0</span>px<span class="token punctuation">;</span> <span class="token property">--window-bottom</span><span class="token punctuation">:</span><span class="token number">0</span>px<span class="token punctuation">;</span></span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>width<span class="token punctuation">=</span>device-width, user-scalable<span class="token punctuation">=</span>no, initial-scale<span class="token punctuation">=</span>1.0, maximum-scale<span class="token punctuation">=</span>1.0, minimum-scale<span class="token punctuation">=</span>1.0<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">http-equiv</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>X-UA-Compatible<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>IE<span class="token punctuation">=</span>edge<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>apple-mobile-web-app-capable<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>yes<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style language-css"><span class="token selector">html,body</span><span class="token punctuation">{</span><span class="token property">margin</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">;</span><span class="token property">padding</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">;</span><span class="token punctuation">}</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>iframe</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>headerIframe<span class="token punctuation">"</span></span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">margin</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">;</span><span class="token property">padding</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">;</span><span class="token property">width</span><span class="token punctuation">:</span><span class="token number">100%</span><span class="token punctuation">;</span><span class="token property">height</span><span class="token punctuation">:</span><span class="token number">100%</span><span class="token punctuation">;</span></span><span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>网站URL<span class="token punctuation">"</span></span> <span class="token attr-name">frameborder</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>0<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>iframe</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span></code></pre><h1 id="苹果描述文件如何进行认证？"><a href="#苹果描述文件如何进行认证？" class="headerlink" title="苹果描述文件如何进行认证？"></a>苹果描述文件如何进行认证？</h1><p>阿里云申请证书</p><p>下载Apache版本取里面的public.crt<br>下载Nginx版本取里面的两个文件</p><p>重命名：<br>public.crt  -&gt; mbaike.crt (https服务器端使用公钥证书文件）<br>214986707960956.key  -&gt; mbaike.key  （https服务器端使用证书对应的key)<br>214986707960956.pem  -&gt;  ca-bundle.pem  (https服务器端使用证书pem)<br>unsigned.mobilecofig文件（IOS端生成的未签名的配置描述文件）</p><p>签名验证<br>把key文件的密码写入到key文件中<br>openssl rsa -in mbaike.key -out mbaikenopass.key<br>签名验证<br>openssl smime -sign -in unsigned.mobileconfig -out signed.mobileconfig -signer mbaike.crt -inkey mbaikenopass.key -certfile ca-bundle.pem -outform der -nodetach</p><p>为报错则说明成功，此时会生成一个签名后的 文件signed.mobileconfig</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> IOS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 苹果 </tag>
+            
+            <tag> IOS </tag>
+            
+            <tag> APP </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Win10 安装ssh【解决安装缓慢】以及通过ssh端口映射达到科学上网的效果「不好用」</title>
+      <link href="openssh/"/>
+      <url>openssh/</url>
+      
+        <content type="html"><![CDATA[<p>一般正常Windows没有安装ssh，去网上查了一下，最多的是<br><strong>设置</strong>&gt;&gt;<strong>应用</strong>&gt;&gt;<strong>应用和功能</strong>&gt;&gt;<strong>管理可选功能</strong>&gt;&gt;<strong>添加功能</strong>&gt;&gt;然后安装 <code>OpenSSH Server(Beta)</code> 和 <code>OpenSSH Client(Beta)</code> 就OK了，但是在安装的时候，进度条一直卡在那里，<br>所以开始寻找其他方法，下面是安装过程：</p><a id="more"></a><h4 id="1、下载需要的Openshh文件"><a href="#1、下载需要的Openshh文件" class="headerlink" title="1、下载需要的Openshh文件"></a>1、下载需要的Openshh文件</h4><p>微软的PowerShell团队已经支持openssh，所以安装文件我们可以在github的powershell团队项目下进行下载<br>下载地址：<a href="https://github.com/PowerShell/Win32-OpenSSH/releases" target="_blank" rel="noopener">https://github.com/PowerShell/Win32-OpenSSH/releases</a><br>根据你的系统进行选择</p><h4 id="2、安装OpenSSH"><a href="#2、安装OpenSSH" class="headerlink" title="2、安装OpenSSH"></a>2、安装OpenSSH</h4><h6 id="1、将下载好的压缩包解压到-C-，这个目录可以自己定"><a href="#1、将下载好的压缩包解压到-C-，这个目录可以自己定" class="headerlink" title="1、将下载好的压缩包解压到 C:\ ，这个目录可以自己定"></a>1、将下载好的压缩包解压到 C:\ ，这个目录可以自己定</h6><h6 id="2、配置环境变量"><a href="#2、配置环境变量" class="headerlink" title="2、配置环境变量"></a>2、配置环境变量</h6><p>Windows桌面，在 计算机(windows7)或此电脑(windows10)，右键 &gt;&gt; 属性 &gt;&gt; 高级系统设置 &gt;&gt; 环境变量 &gt;&gt;系统变量，然后找到 Path 环境变量，将OpenSSH的安装目录填入其中，并一路确定就OK了。</p><h4 id="3、测试"><a href="#3、测试" class="headerlink" title="3、测试"></a>3、测试</h4><p>cmd 打开命令窗口，输入 ssh 测试</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 科学上网 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ssh </tag>
+            
+            <tag> 端口映射 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>使用hexo搭建个人博客并部署到GitHub</title>
+      <link href="HEXO/"/>
+      <url>HEXO/</url>
+      
+        <content type="html"><![CDATA[<p>1、什么是 Hexo？</p><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p><a id="more"></a><p>2、准备工作<br>安装 Hexo 相当简单，只需要先安装下列应用程序即可：</p><ul><li><a href="http://nodejs.org/" target="_blank" rel="noopener">Node.js</a> (Node.js 版本需不低于 8.10，建议使用 Node.js 10.0 及以上版本)</li><li><a href="http://git-scm.com/" target="_blank" rel="noopener">Git</a></li></ul><p>3、安装hexo</p><p>执行以下命令：</p><pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> -g hexo-cli安装 Hexo 完成后，请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件。hexo init <span class="token operator">&lt;</span>folder<span class="token operator">></span><span class="token function">cd</span> <span class="token operator">&lt;</span>folder<span class="token operator">></span><span class="token function">npm</span> <span class="token function">install</span></code></pre><p>新建完成后，指定文件夹的目录如下：<br>├── _config.yml<br>├── package.json<br>├── scaffolds<br>├── source<br>| ├── _drafts<br>| └── _posts<br>└── themes<br>接下来要做的就是修改配置文件了，在根目录下找到文件：_config.yml<br>安装自己的需要进行修改，一般修改下网站标题，作者就可以了</p><h1 id="Site"><a href="#Site" class="headerlink" title="Site"></a>Site</h1><pre><code>title: Fenpho  //网站标题subtitle: //网站副标题description://网站描述author: fenpho//网站作者language: zh-CN//语言timezone://时区</code></pre><h4 id="1、本地预览"><a href="#1、本地预览" class="headerlink" title="1、本地预览"></a>1、本地预览</h4><p>生成静态文件</p><pre><code>$ hexo generate //也可以使用缩写 : $ hexo g</code></pre><p>启动服务器<br>默认情况下，访问网址为：<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a></p><pre><code>$ hexo server</code></pre><p>运行网上面的命令后，打开浏览器输入<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a><br>即可看到页面了，有木有很激动</p><h4 id="2、选取主题"><a href="#2、选取主题" class="headerlink" title="2、选取主题"></a>2、选取主题</h4><p>接下来你需要做进一步的网站美化工作，到官网去选取一个喜欢的主题吧！<br>确定需要使用的主体之后，打开主题的官网下载安装主题即可：</p><p>右键点击根目录，选择<code>git bash</code><br>运行如下命令（去主题的github页面找类似下面的命令）</p><pre><code>$ git clone https://github.com/SuperKieran/TKL.git themes/tkl</code></pre><p>命令中的后面的tkl为存储的目录名字，可以随便修改<br>更新主题相关文件</p><pre><code>cd themes/cafegit pull</code></pre><p>使用主题<br>修改根目录下的博客配置文件 _config.yml 主题属性 theme 为 cafe.<br>配置主题，这个需要根据不同主题的说明来配置，也可以不配置</p><p>好了，主题安装好了，此时需要使用如下命令：</p><pre class=" language-bash"><code class="language-bash">hexo clean <span class="token operator">&amp;&amp;</span> hexo ghexo server</code></pre><p>完成后刷新页面看一下吧</p><h4 id="3、添加文章"><a href="#3、添加文章" class="headerlink" title="3、添加文章"></a>3、添加文章</h4><p>创建一条博文，运行下面的命令，或者直接新建一个Markdown文件，新建文件需要手动添加文章头部（注意目录source/_posts）<br>hexo new “your-post-name”<br>如果想要在新建的同时生成对应的文件夹，用于存放文档的资源文件，如图片，音视频等：将配置文件中的post_asset_folder的值从false改为true即可<br>post_asset_folder: true</p><h4 id="4、部署到GitHub"><a href="#4、部署到GitHub" class="headerlink" title="4、部署到GitHub"></a>4、部署到GitHub</h4><p>在 GitHub 上的操作</p><pre><code>新建一个 Repository在 Repository name 下填写 yourname.github.io,Description (optional) 下填写一些简单的描述（不写也没有关系）找到pages选项，选择master branch作为主页</code></pre><p>简单两步 yourname.github.io 这个域名就配置成功了。</p><p>本地操作</p><pre><code>为 Hexo 安装 Git 插件安装 hexo-deployer-git，否则会报 ERROR Deployer not found: git 的错误。npm install hexo-deployer-git --save</code></pre><p>修改你的 _config.yml 配置文件，在结尾处加上如下内容：</p><h1 id="Deployment"><a href="#Deployment" class="headerlink" title="Deployment"></a>Deployment</h1><h2 id="Docs-https-hexo-io-docs-deployment-html"><a href="#Docs-https-hexo-io-docs-deployment-html" class="headerlink" title="Docs: https://hexo.io/docs/deployment.html"></a>Docs: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">https://hexo.io/docs/deployment.html</a></h2><pre><code>deploy:  type: git  repo: https://github.com/xmgc/xmgc.github.io.git  branch: master</code></pre><p>注意repo中的地址为你自己新建的仓库的路径</p><pre><code>生成静态文件和部署：hexo g &amp; d</code></pre><p>最后出现如下提示就代表成功啦！</p><pre><code>INFO Deploy done: git</code></pre><p>the end！</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 网站安装 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 个人博客 </tag>
+            
+            <tag> Github </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Autosub极速上字幕方法，语音转写自动生成字幕，免费快速上字幕 简单快捷</title>
+      <link href="Autosub/"/>
+      <url>Autosub/</url>
+      
+        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>前段时间做视频我一直在用网易见外的 语音转写功能将视频的音频转化成字幕文件也就是srt文件<br>但是从上个视频之后我发现我用finalcutPro导出的mp3文件传到网易见外工作台会出现 “该视频源仅支持下载，暂不提供字幕服务”<br>无意中我遇到了autosub这个项目</p><a id="more"></a><p>它支持将语音转成字幕，而且识别率很高</p><p>我就不废话了 直接演示</p><p>首先需要有一台Ubuntu的虚拟机，这里我就不带你们安装了，我直接用阿里云的Ubuntu18.04的服务器进行操作<br>像这样的免费VPS有很多，像谷歌云，阿里云国际版，亚马逊，甲骨文最近都提供了免费的VPS<br>随便整一个这样的VPS用来测试还是很不错的，我用的就是阿里云国际版的一年免费试用机，还不错运行网站都没问题</p><p>为了照顾到新玩家，我这里给重装一下系统，确保是一个纯净的系统</p><h1 id="操作过程"><a href="#操作过程" class="headerlink" title="操作过程"></a>操作过程</h1><p>首先先检查系统里有没有Python3的版本</p><pre class=" language-bash"><code class="language-bash">python3 -V</code></pre><p>然后检查系统默认的Python版本</p><pre class=" language-bash"><code class="language-bash">python -V</code></pre><p>如果没有Python3就执行安装一下</p><pre class=" language-bash"><code class="language-bash"><span class="token function">apt-get</span> <span class="token function">install</span> python3</code></pre><p>但是如果你的系统里既有3又有2，而且默认是2版本那么就需要把3设置成默认<br>先移除2版本的连接文件</p><pre class=" language-bash"><code class="language-bash"><span class="token function">rm</span> -rf /usr/bin/python</code></pre><p>然后创建一个连接让python默认指向Python3</p><pre class=" language-bash"><code class="language-bash"><span class="token function">ln</span> -s /usr/bin/python3.6 /usr/bin/python</code></pre><p>最后查看一下python的默认版本</p><pre class=" language-bash"><code class="language-bash">python -V</code></pre><p>好了  准备完毕，开始安装项目<br>先检查升级一下系统源</p><pre class=" language-bash"><code class="language-bash">apt update</code></pre><p>安装ffmpeg组件</p><pre class=" language-bash"><code class="language-bash">apt <span class="token function">install</span> ffmpeg -y</code></pre><p>安装git</p><pre class=" language-bash"><code class="language-bash">apt <span class="token function">install</span> <span class="token function">git</span> -y</code></pre><p>安装pip</p><pre class=" language-bash"><code class="language-bash"><span class="token function">apt-get</span> <span class="token function">install</span> python3-pip</code></pre><p>使用pip部署一下autosub的项目文件</p><pre class=" language-bash"><code class="language-bash">pip <span class="token function">install</span> git+https://github.com/agermanidis/autosub.git@master</code></pre><p>看到两个successfly就说明部署成功了<br>就可以进行语音转字幕的操作了</p><p>首先我们找个没有文件的文件夹</p><pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> /home/</code></pre><p>上传语音文件 输入此命令进行转写</p><pre class=" language-bash"><code class="language-bash">autosub -S zh-CN -D zh-CN  333.mp3</code></pre><p>最后下载出来转写完成生成的srt文件就可以了</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> YouTube </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Autosub </tag>
+            
+            <tag> 字幕 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Freenom不能申请免费域名了？两个方法强制注册新账户和域名</title>
+      <link href="domain/"/>
+      <url>domain/</url>
+      
+        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>近些日子很多人在Freenom上申请一个免费的域名的时候，搜索你想要的域名，点击获取后会出现不可用的情况<br>这种情况就导致你无法去注册一个全新的账户<br>而我登录我的旧账户以后再去获取一个域名就可以获取到<br>所以说我们只需要注册成功一个账户就可以继续使用无限期的免费域名<br>这里有两个方法供大家参考</p><a id="more"></a><h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><h4 id="第一个方法："><a href="#第一个方法：" class="headerlink" title="第一个方法："></a>第一个方法：</h4><p>打开freenom网站<br>因为他提供的免费域名的后缀有tk、ml、cf的这种的<br>所以你只需要吧域名的后缀带上，直接搜索<br>他就会自动帮你把你搜索的域名加入到购物车，而你只需要在结算界面注册新账户就可以了</p><h4 id="第二种方法："><a href="#第二种方法：" class="headerlink" title="第二种方法："></a>第二种方法：</h4><p>同样的打开freenom的网站<br>在合作伙伴的选项卡里有一个开发者选项<br>选择开发者选项卡 滑动鼠标滚轮到下方<br>这时候你就会看到一个按钮：今天就获取一个随机的域账户<br>点击它就会跳转到一个像购物车结算的页面，同样的我们也可以在下方输入邮箱获取到一个新的账户了</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> YouTube </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 域名 </tag>
+            
+            <tag> Freenom </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Laravel-nova安装以及源码的分享测试</title>
+      <link href="nova-install/"/>
+      <url>nova-install/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-安装laravel"><a href="#1-安装laravel" class="headerlink" title="1.安装laravel"></a>1.安装laravel</h2><pre class=" language-bash"><code class="language-bash">composer create-project --prefer-dist laravel/laravel blog</code></pre><p>生成之后.env配置数据库连接</p><h2 id="2-解压复制购买的nova文件夹到laravel根目录下"><a href="#2-解压复制购买的nova文件夹到laravel根目录下" class="headerlink" title="2.解压复制购买的nova文件夹到laravel根目录下"></a>2.解压复制购买的<code>nova</code>文件夹到laravel根目录下</h2><h2 id="3-添加到composer-json文件中："><a href="#3-添加到composer-json文件中：" class="headerlink" title="3.添加到composer.json文件中："></a>3.添加到<code>composer.json</code>文件中：</h2><pre><code>&quot;repositories&quot;: [    {        &quot;type&quot;: &quot;path&quot;,        &quot;url&quot;: &quot;./nova&quot;    }],</code></pre><h2 id="4-将laravel-nova添加到composer-json的require字段："><a href="#4-将laravel-nova添加到composer-json的require字段：" class="headerlink" title="4.将laravel/nova添加到composer.json的require字段："></a>4.将<code>laravel/nova</code>添加到<code>composer.json</code>的<code>require</code>字段：</h2><pre><code>&quot;require&quot;: {    &quot;php&quot;: &quot;^7.1.3&quot;,    &quot;fideloper/proxy&quot;: &quot;^4.0&quot;,    &quot;laravel/framework&quot;: &quot;5.6.*&quot;,    &quot;laravel/nova&quot;: &quot;*&quot;},</code></pre><h2 id="5-修改composer-json文件之后，在控制台终端运行composer-update命令："><a href="#5-修改composer-json文件之后，在控制台终端运行composer-update命令：" class="headerlink" title="5.修改composer.json文件之后，在控制台终端运行composer update命令："></a>5.修改<code>composer.json</code>文件之后，在控制台终端运行<code>composer update</code>命令：</h2><pre><code>composer update</code></pre><h2 id="6-最后，运行nova-install和migrateArtisan-命令。nova-install命令将在你的应用中安装-Nova-的服务提供者，并发布资源文件："><a href="#6-最后，运行nova-install和migrateArtisan-命令。nova-install命令将在你的应用中安装-Nova-的服务提供者，并发布资源文件：" class="headerlink" title="6.最后，运行nova:install和migrateArtisan 命令。nova:install命令将在你的应用中安装 Nova 的服务提供者，并发布资源文件："></a>6.最后，运行<code>nova:install</code>和<code>migrateArtisan</code> 命令。<code>nova:install</code>命令将在你的应用中安装 Nova 的服务提供者，并发布资源文件：</h2><pre><code>php artisan nova:installphp artisan migrate</code></pre><p>运行完以上命令后，请确认<code>App\Providers\NovaServiceProvider</code>被添加到了你的<code>app.php</code>配置文件里。如果没有，请手动添加。当然，如果你的应用不使用App命名空间，你应该按需更新该服务提供者的类名。</p><p>好的！接下来，你可以在浏览器中访问应用的/nova路径，然后你会看到 Nova 管理面板</p><blockquote><ul><li>进入登录界面没有账号，可使用<code>nova:user</code> 执行之后填写name password 如下：</li></ul></blockquote><pre><code>php artisan nova:user  Name: &gt; admin Email Address: &gt; admin@admin.com Password: &gt; User created successfully.</code></pre><p>如果你需要一份nova的最新包测试，请加QQ群：856361189</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 网站安装 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 模板安装 </tag>
+            
+            <tag> Laravel </tag>
+            
+            <tag> laravel-nova </tag>
+            
+            <tag> 优雅的框架 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>一款非常好用的DOS攻击脚本</title>
+      <link href="pentmenu/"/>
+      <url>pentmenu/</url>
+      
+        <content type="html"><![CDATA[<h2 id="工具名称：pentmenu"><a href="#工具名称：pentmenu" class="headerlink" title="工具名称：pentmenu"></a>工具名称：pentmenu</h2><h2 id="工具作用：dos攻击"><a href="#工具作用：dos攻击" class="headerlink" title="工具作用：dos攻击"></a>工具作用：dos攻击</h2><h2 id="工具下载："><a href="#工具下载：" class="headerlink" title="工具下载："></a>工具下载：</h2><pre><code>git https://github.com/kolbwang/pentmenu.git</code></pre><h2 id="环境需求："><a href="#环境需求：" class="headerlink" title="环境需求："></a>环境需求：</h2><blockquote><ul><li>bash</li><li>sudo</li><li>curl</li><li>netcat (必须支持’-k’选项)</li><li>hping3 (或 ‘nping’ 可以用来代替洪水攻击)</li><li>openssl</li><li>stunnel</li><li>nmap</li><li>whois (不是必需的)</li><li>nslookup (或者 ‘host’ 命令)</li><li>ike-scan</li></ul></blockquote><h2 id="如何使用："><a href="#如何使用：" class="headerlink" title="如何使用："></a>如何使用：</h2><ul><li><p>解压数据包</p><pre><code>root@kali:~#  unzip pentmenu-master</code></pre></li><li><p>赋予执行权限并执行脚本</p><pre><code>root@kali:~#  cd pentmenu-master/root@kali:~/pentmenu-master#  chmod 755 pentmenuroot@kali:~/pentmenu-master#  ./pentmenu</code></pre></li></ul><h2 id="模块介绍："><a href="#模块介绍：" class="headerlink" title="模块介绍："></a>模块介绍：</h2><blockquote><p>1) ICMP Echo Flood  # 使用hping3启动针对目标的传统ICMP Echo洪水<br> 2) ICMP Blacknurse  # 使用hping3对目标发动ICMP洪水<br> 3) TCP SYN Flood      # 使用hping3发送大量TCP SYN数据包<br> 4) TCP ACK Flood      # 提供与SYN flood相同的选项，但设置ACK（确认）TCP标志<br> 5) TCP RST Flood      # 提供与SYN flood相同的选项，但设置RST（重置）TCP标志<br> 6) TCP XMAS Flood  # 类似于3)和4)，但发送所有TCP标记的（CWR，ECN，URG，ACK，PSH，RST，SYN，FIN）<br> 7) UDP Flood             # 非常类似于TCP SYN Flood，而是将UDP数据包发送到指定的 host : port<br> 8) SSL DOS                # 使用OpenSSL尝试DOS目标 host : port<br> 9) Slowloris               # 使用netcat将HTTP Headers慢慢发送到目标主机：port，目的是使资源匮乏<br> 10) IPsec DOS           # 使用ike-scan尝试使用主模式和来自随机源IP的主动模式第1阶段数据包来泛洪指定的IP<br> 11) Distraction Scan  # 这不是DOS攻击，只是使用hping3从您选择的欺骗IP启动多个TCP SYN扫描<br> 12) DNS NXDOMAIN Flood  # 此攻击使用dig，通过向不存在的域发送大量DNS查询对您的DNS进行压力测试<br> 13) Go back               # 返回上一级菜单</p></blockquote><p>请不要发起一些恶意的行为:grinning:<br>本脚本仅供测试，研究,任何使用本内容进行操作产生的一切后果与责任与本人无关</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 网络安全 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 网络安全 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Kolb Wang的个人博客（评论插件需国外IP）</title>
+      <link href="HelloWorld/"/>
+      <url>HelloWorld/</url>
+      
+        <content type="html"><![CDATA[<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><pre><code>这是我的第一篇文章。查看文档以获取更多信息。如果您在使用时遇到任何问题，可以在搜索中找到答案，或者您可以在GitHub上询问我！</code></pre><a id="more"></a><h3 id="GBasic"><a href="#GBasic" class="headerlink" title="GBasic"></a>GBasic</h3><pre class=" language-basic"><code class="language-basic"><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"Hello, world!"</span><span class="token punctuation">)</span></code></pre><h3 id="易语言"><a href="#易语言" class="headerlink" title="易语言"></a>易语言</h3><pre class=" language-bash"><code class="language-bash">信息框 <span class="token punctuation">(</span><span class="token string">"Hello, World!"</span>, 0, , <span class="token punctuation">)</span></code></pre><h3 id="VB"><a href="#VB" class="headerlink" title="VB"></a>VB</h3><pre class=" language-vb"><code class="language-vb">Module MainFrm    Sub Main()        System.Console.WriteLine("Hello, World!")    End SubEnd Module</code></pre><h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Hello, World!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre><h3 id="Swift"><a href="#Swift" class="headerlink" title="Swift"></a>Swift</h3><pre class=" language-swift"><code class="language-swift"><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"Hello, World!"</span><span class="token punctuation">)</span></code></pre><h3 id="Go"><a href="#Go" class="headerlink" title="Go"></a>Go</h3><pre class=" language-go"><code class="language-go"><span class="token keyword">package</span> main<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>    <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Hello, World!"</span><span class="token punctuation">)</span><span class="token punctuation">}</span></code></pre><h3 id="BATCH"><a href="#BATCH" class="headerlink" title="BATCH"></a>BATCH</h3><pre class=" language-bash"><code class="language-bash">@echo off<span class="token keyword">echo</span> Hello, World<span class="token operator">!</span>pause</code></pre><h3 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h3><pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">HelloWorld</span><span class="token punctuation">{</span>    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>    <span class="token punctuation">{</span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span> <span class="token string">"Hello, World!"</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre><h3 id="C-1"><a href="#C-1" class="headerlink" title="C++"></a>C++</h3><pre class=" language-c++"><code class="language-c++">#include <iostream>using namespace std;int main(){    cout<<"Hello, World!"<<flush;    return 0;}</code></pre><h3 id="C-2"><a href="#C-2" class="headerlink" title="C"></a>C</h3><pre class=" language-c"><code class="language-c">namespace HelloWorld<span class="token punctuation">{</span>    class Program    <span class="token punctuation">{</span>        <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">Main</span><span class="token punctuation">(</span>string<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>        <span class="token punctuation">{</span>            System<span class="token punctuation">.</span>Console<span class="token punctuation">.</span><span class="token function">Write</span><span class="token punctuation">(</span><span class="token string">"Hello, World!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token punctuation">}</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre><h3 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h3><pre class=" language-php"><code class="language-php"><span class="token keyword">echo</span> <span class="token string">"Hello, World!"</span><span class="token punctuation">;</span></code></pre><h3 id="ASP"><a href="#ASP" class="headerlink" title="ASP"></a>ASP</h3><pre class=" language-asp"><code class="language-asp">response.write ("Hello, World!")</code></pre><h3 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h3><pre class=" language-javascript"><code class="language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Hello, World!"</span><span class="token punctuation">)</span></code></pre><h3 id="Python-2"><a href="#Python-2" class="headerlink" title="Python 2"></a>Python 2</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">print</span> <span class="token string">"Hello, World!"</span></code></pre><h3 id="Python-3"><a href="#Python-3" class="headerlink" title="Python 3"></a>Python 3</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Hello, World!"</span><span class="token punctuation">)</span></code></pre><h3 id="LaTeX"><a href="#LaTeX" class="headerlink" title="LaTeX"></a>LaTeX</h3><pre class=" language-latex"><code class="language-latex"><span class="token function selector">\documentclass</span><span class="token punctuation">{</span><span class="token keyword">article</span><span class="token punctuation">}</span><span class="token function selector">\begin</span><span class="token punctuation">{</span><span class="token keyword">document</span><span class="token punctuation">}</span>    Hello, World!<span class="token function selector">\end</span><span class="token punctuation">{</span><span class="token keyword">document</span><span class="token punctuation">}</span></code></pre><h3 id="Mathematica"><a href="#Mathematica" class="headerlink" title="Mathematica"></a>Mathematica</h3><p>方法一：基于Wolfram 底层语言（进入表达式界面使用）</p><pre class=" language-mathematica"><code class="language-mathematica">`Cell["Hello, World!"]`</code></pre><p>方法二：直接使用数学输出函数</p><pre class=" language-mathematica"><code class="language-mathematica">`CellPrint[Cell["Hello, World!"]]`</code></pre><h3 id="Ruby"><a href="#Ruby" class="headerlink" title="Ruby"></a>Ruby</h3><pre class=" language-ruby"><code class="language-ruby"><span class="token keyword">def</span> <span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span>      <span class="token keyword">return</span> <span class="token string">"Hello , World"</span>    <span class="token keyword">end</span></code></pre><h3 id="Free-pascal"><a href="#Free-pascal" class="headerlink" title="Free pascal"></a>Free pascal</h3><pre class=" language-pascal"><code class="language-pascal">writeln<span class="token punctuation">(</span><span class="token string">'Hello, world!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h3 id="Kotlin"><a href="#Kotlin" class="headerlink" title="Kotlin"></a>Kotlin</h3><pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">fun</span> <span class="token function">main</span><span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>    <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Hello, world!"</span><span class="token punctuation">)</span><span class="token punctuation">}</span></code></pre><h3 id="MATLAB"><a href="#MATLAB" class="headerlink" title="MATLAB"></a>MATLAB</h3><pre class=" language-matlab"><code class="language-matlab"><span class="token function">disp</span><span class="token punctuation">(</span><span class="token string">'Hello, world!'</span><span class="token punctuation">)</span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 随笔 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 随笔 </tag>
+            
+            <tag> 首页 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
