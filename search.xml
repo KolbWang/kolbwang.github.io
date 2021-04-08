@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Hbuilder使用5+APP封装安卓APP&amp;&amp;反编译APP教程（完整教程）</title>
+      <link href="getandroid/"/>
+      <url>getandroid/</url>
+      
+        <content type="html"><![CDATA[<h1 id="环境需求："><a href="#环境需求：" class="headerlink" title="环境需求："></a>环境需求：</h1><blockquote><ul><li>Windows7 或 Windows10</li><li>Hbuilder（<a href="https://www.dcloud.io/hbuilderx.html" target="_blank" rel="noopener">点击下载</a>）</li></ul></blockquote><h1 id="一、Hbuilder封装"><a href="#一、Hbuilder封装" class="headerlink" title="一、Hbuilder封装"></a>一、Hbuilder封装</h1><p>需要注册hbuilder账号 并且验证手机号才能封装</p><h4 id="1-使用安卓封装资料直接拖拽到hbuilder软件中，在index-html中修改app域名"><a href="#1-使用安卓封装资料直接拖拽到hbuilder软件中，在index-html中修改app域名" class="headerlink" title="1.使用安卓封装资料直接拖拽到hbuilder软件中，在index.html中修改app域名"></a>1.使用安卓封装资料直接拖拽到hbuilder软件中，在index.html中修改app域名</h4><p><img src="https://raw.githubusercontent.com/kolbwang/YouTube/master/hbuilder001.png" alt="" loading="lazy"></p><h4 id="2-manifest-json文件是配置图标名字的，基础配置重新获取一下应用标识（AppID）"><a href="#2-manifest-json文件是配置图标名字的，基础配置重新获取一下应用标识（AppID）" class="headerlink" title="2.manifest.json文件是配置图标名字的，基础配置重新获取一下应用标识（AppID）"></a>2.manifest.json文件是配置图标名字的，基础配置重新获取一下应用标识（AppID）</h4><p>更改应用名称，版本号随意。<br><img src="https://raw.githubusercontent.com/kolbwang/YouTube/master/hbuilder002.png" alt="" loading="lazy"></p><h4 id="3-图标配置可以选中一个图片，然后自动批量生成。启动图可以设置、可以不设置，看你自己想法了。"><a href="#3-图标配置可以选中一个图片，然后自动批量生成。启动图可以设置、可以不设置，看你自己想法了。" class="headerlink" title="3.图标配置可以选中一个图片，然后自动批量生成。启动图可以设置、可以不设置，看你自己想法了。"></a>3.图标配置可以选中一个图片，然后自动批量生成。启动图可以设置、可以不设置，看你自己想法了。</h4><p><img src="https://raw.githubusercontent.com/kolbwang/YouTube/master/hbuilder003.png" alt="" loading="lazy"></p><h4 id="4-点击上方-gt-发行"><a href="#4-点击上方-gt-发行" class="headerlink" title="4.点击上方-&gt;发行"></a>4.点击上方-&gt;发行</h4><p><img src="https://raw.githubusercontent.com/kolbwang/YouTube/master/hbuilder004.png" alt="" loading="lazy"></p><h4 id="5-原生APP云打包-gt-使用公共证书-gt-去掉广告上的勾-gt-传统打包-gt-打包即可"><a href="#5-原生APP云打包-gt-使用公共证书-gt-去掉广告上的勾-gt-传统打包-gt-打包即可" class="headerlink" title="5.原生APP云打包-&gt;使用公共证书-&gt;去掉广告上的勾-&gt;传统打包-&gt;打包即可"></a>5.原生APP云打包-&gt;使用公共证书-&gt;去掉广告上的勾-&gt;传统打包-&gt;打包即可</h4><p><img src="https://raw.githubusercontent.com/kolbwang/YouTube/master/hbuilder005.png" alt="" loading="lazy"></p><h4 id="6-在控制台，等待打包完成会有app下载地址，下载下来分发即可"><a href="#6-在控制台，等待打包完成会有app下载地址，下载下来分发即可" class="headerlink" title="6.在控制台，等待打包完成会有app下载地址，下载下来分发即可"></a>6.在控制台，等待打包完成会有app下载地址，下载下来分发即可</h4><p><img src="https://raw.githubusercontent.com/kolbwang/YouTube/master/hbuilder006.png" alt="" loading="lazy"></p><h1 id="二、反编译以及正编译封装（作为了解）"><a href="#二、反编译以及正编译封装（作为了解）" class="headerlink" title="二、反编译以及正编译封装（作为了解）"></a>二、反编译以及正编译封装（作为了解）</h1><h4 id="1-使用终端先进入文件所在文件夹-反编译apk文件"><a href="#1-使用终端先进入文件所在文件夹-反编译apk文件" class="headerlink" title="1.使用终端先进入文件所在文件夹 反编译apk文件"></a>1.使用终端先进入文件所在文件夹 反编译apk文件</h4><pre class=" language-bash"><code class="language-bash">apktool d app.apk  <span class="token comment" spellcheck="true">##apk文件就会被打开变成一个以文件名为名的文件夹</span></code></pre><h4 id="2-这时候进到文件夹内，修改网址、logo以及名字，如果找不到可以借助Ctorol-shift-f全局查找"><a href="#2-这时候进到文件夹内，修改网址、logo以及名字，如果找不到可以借助Ctorol-shift-f全局查找" class="headerlink" title="2.这时候进到文件夹内，修改网址、logo以及名字，如果找不到可以借助Ctorol+shift+f全局查找"></a>2.这时候进到文件夹内，修改网址、logo以及名字，如果找不到可以借助Ctorol+shift+f全局查找</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> 文件夹图标一般在 res/drawable文件夹内（一般是多个4个）  网址和名字可以全局查找到</code></pre><h4 id="3-修改完之后使用命令重新打包"><a href="#3-修改完之后使用命令重新打包" class="headerlink" title="3.修改完之后使用命令重新打包"></a>3.修改完之后使用命令重新打包</h4><pre class=" language-bash"><code class="language-bash">apktool b app -o cool.apk  <span class="token comment" spellcheck="true">##打包出一个cool.apk的文件</span></code></pre><h4 id="4-给刚才重新打包的文件签名"><a href="#4-给刚才重新打包的文件签名" class="headerlink" title="4.给刚才重新打包的文件签名"></a>4.给刚才重新打包的文件签名</h4><pre class=" language-bash"><code class="language-bash">jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore coolapk.keystore -signedjar coolapk-signed.apk -storepass 123456 cool.apk coolapk</code></pre><h4 id="coolapk-signed-apk就是签名之后的安卓app-可以直接安装使用！"><a href="#coolapk-signed-apk就是签名之后的安卓app-可以直接安装使用！" class="headerlink" title="coolapk-signed.apk就是签名之后的安卓app 可以直接安装使用！"></a>coolapk-signed.apk就是签名之后的安卓app 可以直接安装使用！</h4><p><strong><em>本教程以及软件仅供学习交流，如作他用所承受的法律责任一概与作者无关（下载使用即代表你同意上述观点）</em></strong></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Android </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> APP </tag>
+            
+            <tag> 安卓 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>苹果企业签名跑路，H5APP免签封装无跳转无网址显示还原原生APP苹果APP封装</title>
       <link href="webclip/"/>
       <url>webclip/</url>
